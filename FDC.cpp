@@ -4,8 +4,15 @@
 #include <ctime>   // time
 using namespace std;
 
+// Define the printHeader function
+void printHeader(string title) {
+    cout << "========================================\n";
+    cout << "       " << title << "\n";
+    cout << "========================================\n";
+}
+
 int main() {
-    printHeader("Test")
+    printHeader("Movie Recommender");
     srand((unsigned)time(0));
     const int MAX = 50;
 
@@ -49,7 +56,7 @@ int main() {
     // ===== COMEDY (15) =====
     string comedyTitle[MAX] = {
         "Murder Mystery",
-        "We’re the Millers",
+        "We're the Millers",
         "The Hangover",
         "Yes Man",
         "Central Intelligence",
@@ -68,7 +75,7 @@ int main() {
         "A vacation turns into a wild crime case with nonstop jokes.",
         "A fake family plan creates chaos during a risky road trip.",
         "A bachelor party goes wrong and no one remembers what happened.",
-        "A man’s life changes when he says 'yes' to everything.",
+        "A man's life changes when he says 'yes' to everything.",
         "An old classmate pulls a regular guy into a funny spy adventure.",
         "Friends play a game night that turns into a real-life mystery.",
         "Teen friends chase one crazy night before graduation.",
@@ -76,7 +83,7 @@ int main() {
         "A private investigator duo stumbles into a funny crime case.",
         "Two grown men act like kids and destroy everything around them.",
         "Bridesmaids compete and panic while preparing for a wedding.",
-        "A news anchor’s ego creates ridiculous moments and chaos.",
+        "A news anchor's ego creates ridiculous moments and chaos.",
         "A group enters a game world and survives funny dangerous missions.",
         "A man tries dating again with awkward and hilarious situations.",
         "A murder investigation becomes clever, dramatic, and very funny."
@@ -106,7 +113,7 @@ int main() {
         "A musician rises to fame while a relationship faces pressure.",
         "A man looks back on a life tied to crime and loyalty.",
         "A couple faces heartbreak and growth during a difficult divorce.",
-        "A family changes a teenager’s life, and he changes theirs too.",
+        "A family changes a teenager's life, and he changes theirs too.",
         "A prisoner holds onto hope while surviving a harsh prison system.",
         "A kind man lives through major events while searching for love.",
         "The rise of a social media empire creates friendship and betrayal.",
@@ -141,13 +148,13 @@ int main() {
     string horrorDesc[MAX] = {
         "Paranormal investigators face a terrifying case in a haunted home.",
         "A family must stay silent to survive creatures that hunt by sound.",
-        "A family discovers dark forces connected to their child’s nightmares.",
+        "A family discovers dark forces connected to their child's nightmares.",
         "A demonic presence terrorizes a monastery with chilling secrets.",
         "A group of kids faces an evil that returns to their town.",
         "A family tragedy reveals a disturbing and supernatural secret.",
         "A mother and son face a monster that feeds on fear.",
         "A writer finds footage that reveals a deadly evil presence.",
-        "A man visits his girlfriend’s family and uncovers a nightmare.",
+        "A man visits his girlfriend's family and uncovers a nightmare.",
         "A cursed videotape brings terror with a deadly countdown.",
         "A home is haunted, and the evidence becomes terrifyingly real.",
         "A strange curse follows whoever becomes the next target.",
@@ -177,7 +184,7 @@ int main() {
     };
     string scifiDesc[MAX] = {
         "A thief enters dreams to steal secrets—and must plant an idea instead.",
-        "Explorers travel through space to save humanity’s future.",
+        "Explorers travel through space to save humanity's future.",
         "A hacker learns reality is a simulation and fights to break free.",
         "A linguist tries to communicate with aliens to prevent a global crisis.",
         "A blade runner uncovers a secret that could change everything.",
@@ -199,7 +206,7 @@ int main() {
         "The Notebook",
         "La La Land",
         "Me Before You",
-        "To All the Boys I’ve Loved Before",
+        "To All the Boys I've Loved Before",
         "Crazy Rich Asians",
         "Pride and Prejudice",
         "Titanic",
@@ -216,8 +223,8 @@ int main() {
         "A lifelong love story tested by time, class, and memory.",
         "Two dreamers fall in love while chasing success in Los Angeles.",
         "A friendship becomes love and changes two lives forever.",
-        "A teen’s secret letters lead to unexpected romance and drama.",
-        "A woman meets her boyfriend’s wealthy family—with surprises.",
+        "A teen's secret letters lead to unexpected romance and drama.",
+        "A woman meets her boyfriend's wealthy family—with surprises.",
         "Love grows slowly as pride and misunderstandings stand in the way.",
         "A romance blooms aboard a doomed ship with unforgettable moments.",
         "Two strangers share one night that changes their lives.",
@@ -226,8 +233,8 @@ int main() {
         "A man uses time travel to fix mistakes and protect love.",
         "A fake dating plan turns into real feelings and chaos.",
         "A fake engagement leads to real emotions and funny problems.",
-        "Two people connect through a child’s wish and fate.",
-        "A rich man’s world changes when he meets a woman with big dreams."
+        "Two people connect through a child's wish and fate.",
+        "A rich man's world changes when he meets a woman with big dreams."
     };
     int romanceCount = 15;
 
@@ -251,14 +258,14 @@ int main() {
     };
     string animationDesc[MAX] = {
         "A teen becomes Spider-Man and meets heroes from other universes.",
-        "Toys come alive and go on adventures when humans aren’t watching.",
+        "Toys come alive and go on adventures when humans aren't watching.",
         "Two sisters face magic, fear, and love to save their kingdom.",
         "An ogre and a donkey go on a hilarious quest to rescue a princess.",
         "A boy befriends a dragon and changes his world forever.",
-        "A boy travels to the land of ancestors to save his family’s music.",
+        "A boy travels to the land of ancestors to save his family's music.",
         "A father fish crosses the ocean to find his missing son.",
         "An old man and a kid go on a floating house adventure.",
-        "Emotions inside a girl’s mind learn how to work together.",
+        "Emotions inside a girl's mind learn how to work together.",
         "A brave girl sails the ocean to save her people.",
         "A superhero family returns to action while balancing normal life.",
         "A rat dreams of being a chef in Paris and proves everyone wrong.",
@@ -268,63 +275,222 @@ int main() {
     };
     int animationCount = 15;
 
+    // ===== THRILLER (15) ===== [NEW]
+    string thrillerTitle[MAX] = {
+        "Gone Girl",
+        "Shutter Island",
+        "The Silence of the Lambs",
+        "Seven",
+        "Zodiac",
+        "Prisoners",
+        "The Sixth Sense",
+        "The Prestige",
+        "No Country for Old Men",
+        "The Girl with the Dragon Tattoo",
+        "Nightcrawler",
+        "The Departed",
+        "Heat",
+        "Collateral",
+        "The Town"
+    };
+    string thrillerDesc[MAX] = {
+        "A husband becomes the prime suspect when his wife mysteriously disappears.",
+        "A detective investigates a psychiatric facility hiding dark secrets.",
+        "An FBI trainee seeks help from a brilliant but dangerous prisoner.",
+        "Two detectives hunt a serial killer who uses the seven deadly sins.",
+        "Journalists and police chase the infamous Zodiac killer for years.",
+        "A desperate father takes matters into his own hands to find missing children.",
+        "A boy who sees dead people gets help from a child psychologist.",
+        "Two rival magicians engage in a deadly competition of illusions.",
+        "A hunter becomes the hunted after finding drug money in the desert.",
+        "A journalist and hacker investigate a decades-old disappearance.",
+        "An ambitious freelance cameraman descends into the dark world of crime journalism.",
+        "An undercover cop infiltrates the mob while losing his identity.",
+        "A master thief faces off against an equally skilled detective.",
+        "A taxi driver becomes entangled with a hitman during one deadly night.",
+        "A career criminal plans one final heist while the FBI closes in."
+    };
+    int thrillerCount = 15;
+
+    // ===== DOCUMENTARY (15) ===== [NEW]
+    string documentaryTitle[MAX] = {
+        "Free Solo",
+        "The Social Dilemma",
+        "My Octopus Teacher",
+        "Won't You Be My Neighbor?",
+        "Icarus",
+        "The Last Dance",
+        "Tiger King",
+        "13th",
+        "March of the Penguins",
+        "An Inconvenient Truth",
+        "Blackfish",
+        "The Act of Killing",
+        "Food, Inc.",
+        "Fahrenheit 9/11",
+        "The Cove"
+    };
+    string documentaryDesc[MAX] = {
+        "A climber attempts to scale El Capitan without any safety equipment.",
+        "Tech experts reveal the dangerous impact of social media on society.",
+        "A filmmaker forms an unusual bond with an octopus in the ocean.",
+        "The life and philosophy of beloved TV host Mister Rogers.",
+        "An investigation into doping uncovers a massive Russian scandal.",
+        "Michael Jordan and the Chicago Bulls' legendary final season.",
+        "The bizarre true story of big cat breeding and murder plots.",
+        "An examination of racial inequality in the US prison system.",
+        "Emperor penguins journey through Antarctica to breed and survive.",
+        "A wake-up call about climate change and its global impact.",
+        "The dark truth behind marine parks and captive killer whales.",
+        "Former death squad leaders reenact their mass killings.",
+        "An exposé of the industrial food production system.",
+        "A critical look at the War on Terror and government decisions.",
+        "The brutal dolphin hunting practices in a Japanese town."
+    };
+    int documentaryCount = 15;
+
+    // ===== FANTASY (15) ===== [NEW]
+    string fantasyTitle[MAX] = {
+        "The Lord of the Rings: The Fellowship of the Ring",
+        "Harry Potter and the Sorcerer's Stone",
+        "Pan's Labyrinth",
+        "The Shape of Water",
+        "Pirates of the Caribbean: The Curse of the Black Pearl",
+        "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+        "Edward Scissorhands",
+        "The Princess Bride",
+        "Big Fish",
+        "The Hobbit: An Unexpected Journey",
+        "Stardust",
+        "The NeverEnding Story",
+        "Maleficent",
+        "Alice in Wonderland",
+        "The Green Knight"
+    };
+    string fantasyDesc[MAX] = {
+        "A hobbit begins an epic quest to destroy a ring and save Middle-earth.",
+        "A boy discovers he's a wizard and enters a magical school.",
+        "A girl escapes war through a dark fairy tale world full of creatures.",
+        "A mute woman falls in love with an amphibious creature held captive.",
+        "A blacksmith teams with pirates to rescue a governor's daughter.",
+        "Children discover a magical world through a wardrobe during wartime.",
+        "A gentle man with scissors for hands tries to fit into suburban life.",
+        "A grandfather tells his grandson an adventure story of true love.",
+        "A son pieces together his father's life through fantastical stories.",
+        "A hobbit joins dwarves on a dangerous journey to reclaim their homeland.",
+        "A young man crosses into a magical realm to retrieve a fallen star.",
+        "A boy reads a book that pulls him into its fantasy world.",
+        "A fairy's perspective on the classic Sleeping Beauty tale unfolds.",
+        "A girl falls down a rabbit hole into a whimsical and strange world.",
+        "A knight accepts a supernatural challenge that tests his honor."
+    };
+    int fantasyCount = 15;
+
     char again = 'y';
 
     while (again == 'y' || again == 'Y') {
         int choice;
-        cout << "\nChoose genre:\n";
-        cout << "1. Action\n2. Comedy\n3. Drama\n4. Horror\n5. Sci-Fi\n6. Romance\n7. Animation\n0. Exit\n";
+        cout << "\n========================================\n";
+        cout << "           CHOOSE A GENRE\n";
+        cout << "========================================\n";
+        cout << " 1. Action\n";
+        cout << " 2. Comedy\n";
+        cout << " 3. Drama\n";
+        cout << " 4. Horror\n";
+        cout << " 5. Sci-Fi\n";
+        cout << " 6. Romance\n";
+        cout << " 7. Animation\n";
+        cout << " 8. Thriller\n";          // [NEW]
+        cout << " 9. Documentary\n";       // [NEW]
+        cout << "10. Fantasy\n";           // [NEW]
+        cout << " 0. Exit\n";
+        cout << "========================================\n";
         cout << "Enter choice: ";
         cin >> choice;
 
-        if (choice == 0) break;
+        if (choice == 0) {
+            cout << "\nThank you for using Movie Recommender!\n";
+            break;
+        }
 
-        cout << "\nRecommended Movie:\n";
+        cout << "\n----------------------------------------\n";
+        cout << "       RECOMMENDED MOVIE\n";
+        cout << "----------------------------------------\n";
 
         switch (choice) {
             case 1: {
                 int r = rand() % actionCount;
-                cout << actionTitle[r] << "\n" << actionDesc[r] << "\n";
+                cout << "Title: " << actionTitle[r] << "\n";
+                cout << "Description: " << actionDesc[r] << "\n";
                 break;
             }
             case 2: {
                 int r = rand() % comedyCount;
-                cout << comedyTitle[r] << "\n" << comedyDesc[r] << "\n";
+                cout << "Title: " << comedyTitle[r] << "\n";
+                cout << "Description: " << comedyDesc[r] << "\n";
                 break;
             }
             case 3: {
                 int r = rand() % dramaCount;
-                cout << dramaTitle[r] << "\n" << dramaDesc[r] << "\n";
+                cout << "Title: " << dramaTitle[r] << "\n";
+                cout << "Description: " << dramaDesc[r] << "\n";
                 break;
             }
             case 4: {
                 int r = rand() % horrorCount;
-                cout << horrorTitle[r] << "\n" << horrorDesc[r] << "\n";
+                cout << "Title: " << horrorTitle[r] << "\n";
+                cout << "Description: " << horrorDesc[r] << "\n";
                 break;
             }
             case 5: {
                 int r = rand() % scifiCount;
-                cout << scifiTitle[r] << "\n" << scifiDesc[r] << "\n";
+                cout << "Title: " << scifiTitle[r] << "\n";
+                cout << "Description: " << scifiDesc[r] << "\n";
                 break;
             }
             case 6: {
                 int r = rand() % romanceCount;
-                cout << romanceTitle[r] << "\n" << romanceDesc[r] << "\n";
+                cout << "Title: " << romanceTitle[r] << "\n";
+                cout << "Description: " << romanceDesc[r] << "\n";
                 break;
             }
             case 7: {
                 int r = rand() % animationCount;
-                cout << animationTitle[r] << "\n" << animationDesc[r] << "\n";
+                cout << "Title: " << animationTitle[r] << "\n";
+                cout << "Description: " << animationDesc[r] << "\n";
+                break;
+            }
+            case 8: {  // [NEW]
+                int r = rand() % thrillerCount;
+                cout << "Title: " << thrillerTitle[r] << "\n";
+                cout << "Description: " << thrillerDesc[r] << "\n";
+                break;
+            }
+            case 9: {  // [NEW]
+                int r = rand() % documentaryCount;
+                cout << "Title: " << documentaryTitle[r] << "\n";
+                cout << "Description: " << documentaryDesc[r] << "\n";
+                break;
+            }
+            case 10: {  // [NEW]
+                int r = rand() % fantasyCount;
+                cout << "Title: " << fantasyTitle[r] << "\n";
+                cout << "Description: " << fantasyDesc[r] << "\n";
                 break;
             }
             default:
-                cout << "Invalid choice. Please enter 0 to 7.\n";
+                cout << "Invalid choice. Please enter 0 to 10.\n";  // [UPDATED]
         }
+
+        cout << "----------------------------------------\n";
 
         cout << "\nContinue? (y/n): ";
         cin >> again;
     }
 
-    cout << "\nProgram ended.\n";
+    cout << "\n========================================\n";
+    cout << "         Program ended. Goodbye!\n";
+    cout << "========================================\n";
+
     return 0;
 }
