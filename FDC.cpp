@@ -488,7 +488,7 @@ int main() {
         cout << " 0. Exit\n";
         cout << "========================================\n";
         
-        // [NEW] Show movie count if user has viewed movies
+        // Show movie count if user has viewed movies
         if (movieCount > 0) {
             cout << "Movies recommended this session: " << movieCount << "\n";
             cout << "========================================\n";
@@ -497,7 +497,7 @@ int main() {
         int choice = getValidChoice(0, 10);
 
         if (choice == 0) {
-            // [NEW] Session summary
+            // Session summary
             cout << "\n========================================\n";
             cout << "         SESSION SUMMARY\n";
             cout << "========================================\n";
@@ -523,104 +523,88 @@ int main() {
         cout << "       Genre: " << genreName << "\n";  // [NEW] Display genre
         cout << "----------------------------------------\n";
 
+        // Only assign values, don't print inside switch
         switch (choice) {
             case 1: {
                 int r = rand() % actionCount;
-                cout << "Title: " << actionTitle[r] << "\n";
-                cout << "Description: " << actionDesc[r] << "\n";
+                currentTitle = actionTitle[r];
+                currentDesc = actionDesc[r];
                 break;
             }
             case 2: {
                 int r = rand() % comedyCount;
-                cout << "Title: " << comedyTitle[r] << "\n";
-                cout << "Description: " << comedyDesc[r] << "\n";
+                currentTitle = comedyTitle[r];
+                currentDesc = comedyDesc[r];
                 break;
             }
             case 3: {
                 int r = rand() % dramaCount;
-                cout << "Title: " << dramaTitle[r] << "\n";
-                cout << "Description: " << dramaDesc[r] << "\n";
+                currentTitle = dramaTitle[r];
+                currentDesc = dramaDesc[r];
                 break;
             }
             case 4: {
                 int r = rand() % horrorCount;
-                cout << "Title: " << horrorTitle[r] << "\n";
-                cout << "Description: " << horrorDesc[r] << "\n";
+                currentTitle = horrorTitle[r];
+                currentDesc = horrorDesc[r];
                 break;
             }
             case 5: {
                 int r = rand() % scifiCount;
-                cout << "Title: " << scifiTitle[r] << "\n";
-                cout << "Description: " << scifiDesc[r] << "\n";
+                currentTitle = scifiTitle[r];
+                currentDesc = scifiDesc[r];
                 break;
             }
             case 6: {
                 int r = rand() % romanceCount;
-                cout << "Title: " << romanceTitle[r] << "\n";
-                cout << "Description: " << romanceDesc[r] << "\n";
+                currentTitle = romanceTitle[r];
+                currentDesc = romanceDesc[r];
                 break;
             }
             case 7: {
                 int r = rand() % animationCount;
-                cout << "Title: " << animationTitle[r] << "\n";
-                cout << "Description: " << animationDesc[r] << "\n";
+                currentTitle = animationTitle[r];
+                currentDesc = animationDesc[r];
                 break;
             }
-             case 8: {  
+            case 8: {
                 int r = rand() % thrillerCount;
-                cout << "Title: " << thrillerTitle[r] << "\n";
-                cout << "Description: " << thrillerDesc[r] << "\n";
+                currentTitle = thrillerTitle[r];
+                currentDesc = thrillerDesc[r];
                 break;
             }
-            case 9: {  
+            case 9: {
                 int r = rand() % documentaryCount;
-                cout << "Title: " << documentaryTitle[r] << "\n";
-                cout << "Description: " << documentaryDesc[r] << "\n";
+                currentTitle = documentaryTitle[r];
+                currentDesc = documentaryDesc[r];
                 break;
             }
-            case 10: {  
+            case 10: {
                 int r = rand() % fantasyCount;
-                cout << "Title: " << fantasyTitle[r] << "\n";
-                cout << "Description: " << fantasyDesc[r] << "\n";
+                currentTitle = fantasyTitle[r];
+                currentDesc = fantasyDesc[r];
                 break;
             }
-            default:
-                cout << "Invalid choice. Please enter 0 to 10.\n";  
         }
 
-        c // Display the movie
+        // Display the movie (only once now!)
         cout << "Title: " << currentTitle << "\n";
         cout << "Description: " << currentDesc << "\n";
         cout << "----------------------------------------\n";
-        
+
         // Update movie count
         movieCount++;
-        
-        // Add to watch history (circular buffer)
-        watchHistory[historyIndex] = currentTitle + " (" + genreName + ")";
-        historyIndex = (historyIndex + 1) % HISTORY_SIZE;
-        
-        // Display random tip occasionally
-        displayRandomTip();
 
-        again = getValidYesNo();
-    } // Display the movie
-        cout << "Title: " << currentTitle << "\n";
-        cout << "Description: " << currentDesc << "\n";
-        cout << "----------------------------------------\n";
-        
-        // [Update movie count
-        movieCount++;
-        
         // Add to watch history (circular buffer)
         watchHistory[historyIndex] = currentTitle + " (" + genreName + ")";
         historyIndex = (historyIndex + 1) % HISTORY_SIZE;
-        
+
         // Display random tip occasionally
         displayRandomTip();
 
         again = getValidYesNo();
     }
+
 
     cout << "\n========================================\n";
     cout << "         Program ended. Goodbye!\n";
