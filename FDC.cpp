@@ -588,9 +588,38 @@ int main() {
                 cout << "Invalid choice. Please enter 0 to 10.\n";  
         }
 
+        c // Display the movie
+        cout << "Title: " << currentTitle << "\n";
+        cout << "Description: " << currentDesc << "\n";
         cout << "----------------------------------------\n";
+        
+        // Update movie count
+        movieCount++;
+        
+        // Add to watch history (circular buffer)
+        watchHistory[historyIndex] = currentTitle + " (" + genreName + ")";
+        historyIndex = (historyIndex + 1) % HISTORY_SIZE;
+        
+        // Display random tip occasionally
+        displayRandomTip();
 
-        again = getValidYesNo();  // [CHANGED: Using error handling function]
+        again = getValidYesNo();
+    } // Display the movie
+        cout << "Title: " << currentTitle << "\n";
+        cout << "Description: " << currentDesc << "\n";
+        cout << "----------------------------------------\n";
+        
+        // [Update movie count
+        movieCount++;
+        
+        // Add to watch history (circular buffer)
+        watchHistory[historyIndex] = currentTitle + " (" + genreName + ")";
+        historyIndex = (historyIndex + 1) % HISTORY_SIZE;
+        
+        // Display random tip occasionally
+        displayRandomTip();
+
+        again = getValidYesNo();
     }
 
     cout << "\n========================================\n";
