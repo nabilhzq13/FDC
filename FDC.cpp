@@ -54,10 +54,49 @@ char getValidYesNo() {
     }
 }
 
+// Function to get genre name
+string getGenreName(int choice) {
+    switch (choice) {
+        case 1: return "Action";
+        case 2: return "Comedy";
+        case 3: return "Drama";
+        case 4: return "Horror";
+        case 5: return "Sci-Fi";
+        case 6: return "Romance";
+        case 7: return "Animation";
+        case 8: return "Thriller";
+        case 9: return "Documentary";
+        case 10: return "Fantasy";
+        default: return "Unknown";
+    }
+}
+
+// Function to display random tip
+void displayRandomTip() {
+    string tips[5] = {
+        "Tip: Grab some popcorn before starting your movie!",
+        "Tip: Turn off your phone for a better experience!",
+        "Tip: Watch with friends for more fun!",
+        "Tip: Try a genre you haven't explored before!",
+        "Tip: Don't forget to stay hydrated while watching!"
+    };
+    
+    // Show tip 30% of the time
+    if (rand() % 10 < 3) {
+        cout << "\n" << tips[rand() % 5] << "\n";
+    }
+}
+
 int main() {
     printHeader("Movie Recommender");
     srand((unsigned)time(0));
     const int MAX = 50;
+
+     // Session tracking variables
+    int movieCount = 0;
+    const int HISTORY_SIZE = 5;
+    string watchHistory[HISTORY_SIZE];
+    int historyIndex = 0;
 
     // ===== ACTION (15) =====
     string actionTitle[MAX] = {
@@ -449,15 +488,39 @@ int main() {
         cout << " 0. Exit\n";
         cout << "========================================\n";
         
-       int choice = getValidChoice(0, 10);  // [CHANGED: Using error handling function]
+        // [NEW] Show movie count if user has viewed movies
+        if (movieCount > 0) {
+            cout << "Movies recommended this session: " << movieCount << "\n";
+            cout << "========================================\n";
+        }
+
+        int choice = getValidChoice(0, 10);
 
         if (choice == 0) {
+            // [NEW] Session summary
+            cout << "\n========================================\n";
+            cout << "         SESSION SUMMARY\n";
+            cout << "========================================\n";
+            cout << "Total movies recommended: " << movieCount << "\n";
+            
+            if (movieCount > 0) {
+                cout << "\nYour recent recommendations:\n";
+                for (int i = 0; i < HISTORY_SIZE && watchHistory[i] != ""; i++) {
+                    cout << " - " << watchHistory[i] << "\n";
+                }
+            }
+            
             cout << "\nThank you for using Movie Recommender!\n";
             break;
         }
 
+        string currentTitle;
+        string currentDesc;
+        string genreName = getGenreName(choice);  // [NEW] Get genre name
+
         cout << "\n----------------------------------------\n";
         cout << "       RECOMMENDED MOVIE\n";
+        cout << "       Genre: " << genreName << "\n";  // [NEW] Display genre
         cout << "----------------------------------------\n";
 
         switch (choice) {
