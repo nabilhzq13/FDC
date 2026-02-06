@@ -448,8 +448,8 @@ int main() {
         cout << "10. Fantasy\n";           
         cout << " 0. Exit\n";
         cout << "========================================\n";
-        cout << "Enter choice: ";
-        cin >> choice;
+        
+       int choice = getValidChoice(0, 10);  // [CHANGED: Using error handling function]
 
         if (choice == 0) {
             cout << "\nThank you for using Movie Recommender!\n";
@@ -527,8 +527,7 @@ int main() {
 
         cout << "----------------------------------------\n";
 
-        cout << "\nContinue? (y/n): ";
-        cin >> again;
+        again = getValidYesNo();  // [CHANGED: Using error handling function]
     }
 
     cout << "\n========================================\n";
