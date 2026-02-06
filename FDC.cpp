@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib> // rand, srand
+#include <limits>  // numeric_limits 
 #include <ctime>   // time
 using namespace std;
 
@@ -9,6 +10,48 @@ void printHeader(string title) {
     cout << "========================================\n";
     cout << "       " << title << "\n";
     cout << "========================================\n";
+}
+
+// Function to clear input buffer 
+void clearInputBuffer() {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
+// Function to get valid integer input 
+int getValidChoice(int min, int max) {
+    int choice;
+    while (true) {
+        cout << "Enter choice: ";
+        if (cin >> choice) {
+            if (choice >= min && choice <= max) {
+                return choice;
+            } else {
+                cout << "Error: Please enter a number between " << min << " and " << max << ".\n";
+            }
+        } else {
+            cout << "Error: Invalid input. Please enter a number.\n";
+            clearInputBuffer();
+        }
+    }
+}
+
+// Function to get valid yes/no input 
+char getValidYesNo() {
+    char response;
+    while (true) {
+        cout << "\nContinue? (y/n): ";
+        if (cin >> response) {
+            if (response == 'y' || response == 'Y' || response == 'n' || response == 'N') {
+                return response;
+            } else {
+                cout << "Error: Please enter 'y' for yes or 'n' for no.\n";
+            }
+        } else {
+            cout << "Error: Invalid input. Please enter 'y' or 'n'.\n";
+            clearInputBuffer();
+        }
+    }
 }
 
 int main() {
